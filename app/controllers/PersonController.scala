@@ -1,7 +1,8 @@
 package controllers
 
-import javax.inject._
+import akka.actor.{Actor, ActorSystem, Props}
 
+import javax.inject._
 import models._
 import play.api.data.Form
 import play.api.data.Forms._
@@ -16,6 +17,16 @@ class PersonController @Inject()(repo: PersonRepository,
                                   cc: MessagesControllerComponents
                                 )(implicit ec: ExecutionContext)
   extends MessagesAbstractController(cc) {
+
+  class PersonActor extends Actor {
+    def receive: Receive = {
+      case CreatePersonForm(name,age) =>
+        repo.create(name,age)
+    }
+  }
+
+  val system = ActorSystem("PersonActorSystem")
+  val pActor = system.actorOf(Props(classOf[PersonActor], this), "pActor")
 
   /**
    * The mapping for the person form.
@@ -50,9 +61,11 @@ class PersonController @Inject()(repo: PersonRepository,
       },
       // There were no errors in the from, so create the person.
       person => {
+        pActor ! CreatePersonForm(person.name, person.age)
         repo.create(person.name, person.age).map { _ =>
           // If successful, we simply redirect to the index page.
           Redirect(routes.PersonController.index).flashing("success" -> "user.created")
+
         }
       }
     )
@@ -67,11 +80,21 @@ class PersonController @Inject()(repo: PersonRepository,
     }
   }
 
+  def listPersons = {
+    repo.list().map { people =>
+      println(people)
+    }
+  }
+
   def detetePerson(id :Long) = Action.async { implicit request =>
     repo.delete(id).map { people =>
       Ok(Json.toJson(people))
     }
   }
+
+
+
+
 }
 
 /**
