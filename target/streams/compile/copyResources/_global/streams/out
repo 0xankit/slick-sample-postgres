@@ -1,6 +1,0 @@
-[0m[[0m[0mdebug[0m] [0m[0mCopy resource mappings: [0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/Users/ankitkumar/Desktop/persistence/POS/play-samples/play-scala-slick-example/conf/logback.xml,/Users/ankitkumar/Desktop/persistence/POS/play-samples/play-scala-slick-example/target/scala-2.13/classes/logback.xml)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/Users/ankitkumar/Desktop/persistence/POS/play-samples/play-scala-slick-example/conf/messages,/Users/ankitkumar/Desktop/persistence/POS/play-samples/play-scala-slick-example/target/scala-2.13/classes/messages)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/Users/ankitkumar/Desktop/persistence/POS/play-samples/play-scala-slick-example/conf/application.conf,/Users/ankitkumar/Desktop/persistence/POS/play-samples/play-scala-slick-example/target/scala-2.13/classes/application.conf)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/Users/ankitkumar/Desktop/persistence/POS/play-samples/play-scala-slick-example/conf/routes,/Users/ankitkumar/Desktop/persistence/POS/play-samples/play-scala-slick-example/target/scala-2.13/classes/routes)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(/Users/ankitkumar/Desktop/persistence/POS/play-samples/play-scala-slick-example/conf/evolutions/default/1.sql,/Users/ankitkumar/Desktop/persistence/POS/play-samples/play-scala-slick-example/target/scala-2.13/classes/evolutions/default/1.sql)[0m
